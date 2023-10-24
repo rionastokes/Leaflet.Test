@@ -1,0 +1,28 @@
+{
+  "name": "leaflet-test",
+  "version": "1.0.0",
+  "description": "Leaflet plugin for testing your own custom plugin.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"No test specified\"",
+    "test-ac": "echo \"No accessibility test specified\"",
+    "prepublishOnly": "echo \"See here for best practices: https://github.com/Leaflet/Leaflet/blob/main/PLUGIN-GUIDE.md#publishing-on-npm\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com/rionastokes/Leaflet.Test.git"
+  },
+  "keywords": [
+    "leaflet",
+    "test"
+  ],
+  "author": "Ríona Stokes (https://github.com/rionastokes)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rionastokes/Leaflet.Test/issues"
+  },
+  "homepage": "https://github.com/rionastokes/Leaflet.Test#readme",
+  "dependencies": {
+    "leaflet": "^1.9.4"
+  }
+}
