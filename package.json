@@ -6,6 +6,10 @@
   "scripts": {
     "test": "echo \"No test specified\"",
     "test-ac": "echo \"No accessibility test specified\"",
+    "test-web-gubu": "npm run build && npm run build-web && browserify -i util -o test/web.js -e test/entry.js -im && see test/web.html",
+    "build-web-gubu": "cp gubu.js gubu.max.js && browserify -i util -o gubu.max.js -e gubu.web.js -s Gubu -i",
+    "test-web": "npm run build-web && browserify -i util -o spec/web.js -e spec/entry.js -im && see spec/web.html",
+    "build-web": "cp src/leaflet-test.js src/leaflet-test.max.js && browserify -i util -o src/leaflet-test.max.js -e src/leaflet-test.web.js -s Leaflet.Test -i",
     "prepublishOnly": "echo \"See here for best practices: https://github.com/Leaflet/Leaflet/blob/main/PLUGIN-GUIDE.md#publishing-on-npm\" "
   },
   "repository": {
@@ -24,5 +28,8 @@
   "homepage": "https://github.com/rionastokes/Leaflet.Test#readme",
   "dependencies": {
     "leaflet": "^1.9.4"
+  },
+  "devDependencies": {
+    "browserify": "^17.0.0"
   }
 }
