@@ -14610,16 +14610,49 @@ window.expect = function (sval) {
 
 require('./leaflet.test.js')
 
-},{"./leaflet.test.js":3}],3:[function(require,module,exports){
+},{"./leaflet.test.js":4}],3:[function(require,module,exports){
+L.Control.Watermark = L.Control.extend({
+  onAdd: function (map) {
+    var img = L.DomUtil.create('img')
+
+    img.src =
+      'https://www.trashedgraphics.com/wp-content/uploads/2013/10/pin_transparent_red.png'
+    img.style.width = this.options.width
+
+    return img
+  },
+
+  onRemove: function (map) {},
+})
+
+L.control.watermark = function (options) {
+  return new L.Control.Watermark(options)
+}
+
+},{}],4:[function(require,module,exports){
 let Leaflet = require('../src/leaflet')
+require('./leaflet-plugin/L.WatermarkControl')
 
 describe('leaflet', () => {
   test('happy', () => {
     expect(Leaflet).toBeDefined()
   })
+
+  test('map', () => {
+    let map = L.map(document.createElement('div'))
+    expect(map).toBeDefined()
+  })
+
+  test('custom-plugin-watermark', () => {
+    let map = L.map(document.createElement('div'))
+    let watermark = L.control.watermark()
+    watermark.addTo(map)
+    let wmcontainer = watermark.getContainer()
+    expect(wmcontainer).toBeDefined()
+  })
 })
 
-},{"../src/leaflet":4}],4:[function(require,module,exports){
+},{"../src/leaflet":5,"./leaflet-plugin/L.WatermarkControl":3}],5:[function(require,module,exports){
 (function (global){(function (){
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.Leaflet = f()}})(function(){var define,module,exports;return (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 /* @preserve
