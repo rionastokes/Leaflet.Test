@@ -93,4 +93,4 @@ window.expect = function (sval) {
   }
 }
 
-require('./leaflet-test.test.js')
+require('./leaflet.test.js')
